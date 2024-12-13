@@ -9,31 +9,31 @@ const App = () => {
   const [newsForm, setNewsForm] = useState({ title: '', content: '', location: '', postedBy: '' });
   const [eventForm, setEventForm] = useState({ title: '', description: '', eventDate: '', location: '' });
   const [loading, setLoading] = useState(false);
-  const [nearbyUsers, setNearbyUsers] = useState([]);  // New state for nearby users
-  const [location, setLocation] = useState(null);  // State for current location
+  const [nearbyUsers, setNearbyUsers] = useState([]);  
+  const [location, setLocation] = useState(null);  
 
-  // Fetch news and events from backend when the component mounts
+ 
   useEffect(() => {
-    // Fetch News
+   
     axios.get('http://localhost:5000/api/news')
       .then((response) => {
-        setNews(response.data);  // Update state with the fetched news
+        setNews(response.data);  
       })
       .catch((error) => {
         console.error('Error fetching news:', error);
       });
 
-    // Fetch Events
+   
     axios.get('http://localhost:5000/api/events')
       .then((response) => {
-        setEvents(response.data);  // Update state with the fetched events
+        setEvents(response.data); 
       })
       .catch((error) => {
         console.error('Error fetching events:', error);
       });
-  }, []); // Empty dependency array ensures the effect runs once when the component mounts
+  }, []); 
 
-  // Fetch location when the app starts (on refresh/restart)
+ 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -44,35 +44,35 @@ const App = () => {
         console.error('Error fetching location:', error);
       }
     );
-  }, []);  // Run only once on mount to fetch location on page load
+  }, []);  
 
-  // Fetch nearby users when location is available
+ 
   useEffect(() => {
     if (location) {
       console.log('Fetching nearby users for location:', location);
       axios.post('http://localhost:5000/api/nearby-users', {
         latitude: location.latitude,
         longitude: location.longitude,
-        radius: 10,  // Set the radius for nearby users in kilometers
+        radius: 10,  
       })
         .then((response) => {
           console.log('Nearby users:', response.data.users);
-          setNearbyUsers(response.data.users);  // Set nearby users
+          setNearbyUsers(response.data.users); 
         })
         .catch((error) => {
           console.error('Error fetching nearby users:', error);
         });
     }
-  }, [location]);  // Trigger fetching nearby users only when the location changes
+  }, [location]);  
 
-  // Function to handle adding news
+
   const handleAddNews = (e) => {
     e.preventDefault();
     setLoading(true);
     axios.post('http://localhost:5000/api/news', newsForm)
       .then((response) => {
-        setNews([...news, response.data]);  // Add the newly created news item to the list
-        setNewsForm({ title: '', content: '', location: '', postedBy: '' }); // Reset form
+        setNews([...news, response.data]);  
+        setNewsForm({ title: '', content: '', location: '', postedBy: '' }); 
         setLoading(false);
       })
       .catch((error) => {
@@ -81,14 +81,14 @@ const App = () => {
       });
   };
 
-  // Function to handle adding event
+  
   const handleAddEvent = (e) => {
     e.preventDefault();
     setLoading(true);
     axios.post('http://localhost:5000/api/events', eventForm)
       .then((response) => {
-        setEvents([...events, response.data]);  // Add the newly created event to the list
-        setEventForm({ title: '', description: '', eventDate: '', location: '' }); // Reset form
+        setEvents([...events, response.data]);  
+        setEventForm({ title: '', description: '', eventDate: '', location: '' }); 
         setLoading(false);
       })
       .catch((error) => {
