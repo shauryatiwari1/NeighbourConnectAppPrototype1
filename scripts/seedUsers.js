@@ -1,28 +1,28 @@
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 const mongoose = require('mongoose');
 const User = require('../models/user');
 
-// MongoDB connection
+
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 10000, // 10 seconds timeout
+    serverSelectionTimeoutMS: 10000, 
   })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => {
     console.error('Error connecting to MongoDB:', err);
-    process.exit(1); // Exit the process if connection fails
+    process.exit(1); //
   });
 
-// Base location (near New Delhi, India)
+
 const baseLatitude = 28.6139;
 const baseLongitude = 77.2090;
 
-// Function to generate nearby coordinates by adding small random offsets
+
 const generateNearbyCoordinates = (latitude, longitude) => {
-  const latitudeOffset = (Math.random() - 0.5) * 0.02; // Random value between -0.01 and +0.01
-  const longitudeOffset = (Math.random() - 0.5) * 0.02; // Random value between -0.01 and +0.01
+  const latitudeOffset = (Math.random() - 0.5) * 0.02; 
+  const longitudeOffset = (Math.random() - 0.5) * 0.02; 
 
   return {
     latitude: latitude + latitudeOffset,
@@ -30,7 +30,7 @@ const generateNearbyCoordinates = (latitude, longitude) => {
   };
 };
 
-// Example users with valid data (generated near the base location)
+
 const users = [
   {
     name: 'Alice',
@@ -89,14 +89,14 @@ const users = [
   },
 ];
 
-// Seed function
+
 const seedUsers = async () => {
   try {
-    // Clear existing users
+   
     await User.deleteMany({});
     console.log('All existing users removed.');
 
-    // Insert new users
+   
     await User.insertMany(users);
     console.log('Users seeded successfully.');
   } catch (err) {
@@ -106,5 +106,5 @@ const seedUsers = async () => {
   }
 };
 
-// Run the seed function
+
 seedUsers();
