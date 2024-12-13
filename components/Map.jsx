@@ -2,11 +2,11 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
 
-import 'leaflet/dist/leaflet.css'; // Import Leaflet's CSS for proper styling
+import 'leaflet/dist/leaflet.css';
 
 
 const Map = ({ latitude, longitude, nearbyUsers }) => {
-  const position = [latitude, longitude]; // Center of the map (user's location)
+  const position = [latitude, longitude]; 
 
   return (
     <div style={{ height: '400px', width: '100%' }}>
