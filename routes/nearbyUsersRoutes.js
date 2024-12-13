@@ -2,17 +2,17 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 
-// Endpoint to get nearby users
+
 router.post('/', async (req, res) => {
   const { latitude, longitude } = req.body;
-  const radiusInKm = 10; // Adjust the radius as needed
+  const radiusInKm = 10; 
 
   if (!latitude || !longitude) {
     return res.status(400).json({ error: 'Latitude and longitude are required' });
   }
 
   try {
-    // Convert radius to radians (Earth's radius is approximately 6378 km)
+    
     const radiusInRadians = radiusInKm / 6378;
 
     const nearbyUsers = await User.find({
