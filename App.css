@@ -1,4 +1,4 @@
-/* App.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,15 +7,15 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #7187a3; /* White background */
-  color: #333333; /* Dark text color for contrast */
+  background-color: #7187a3; 
+  color: #333333; 
   line-height: 1.6;
   padding: 20px;
 }
 
 h1, h2, h3 {
   font-family: 'Georgia', serif;
-  color: #0044cc; /* Blue color for headings */
+  color: #0044cc;
   margin-bottom: 15px;
 }
 
@@ -27,13 +27,13 @@ h1 {
 
 h2 {
   font-size: 28px;
-  border-bottom: 2px solid #0044cc; /* Blue underline */
+  border-bottom: 2px solid #0044cc; 
   padding-bottom: 5px;
 }
 
 h3 {
   font-size: 22px;
-  color: #000000; /* Black color for subheadings */
+  color: #000000;
 }
 
 p {
@@ -41,7 +41,7 @@ p {
 }
 
 button {
-  background-color: #0044cc; /* Blue button */
+  background-color: #0044cc;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -52,11 +52,11 @@ button {
 }
 
 button:hover {
-  background-color: #003399; /* Darker blue on hover */
+  background-color: #003399;
 }
 
 button:disabled {
-  background-color: #d3d3d3; /* Grey button when disabled */
+  background-color: #d3d3d3;
   cursor: not-allowed;
 }
 
@@ -73,7 +73,7 @@ button:disabled {
 }
 
 .section-block {
-  background-color: #ffffff; /* White background for blocks */
+  background-color: #ffffff; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -99,7 +99,7 @@ input[type="text"], textarea {
 
 input[type="text"]:focus, textarea:focus {
   outline: none;
-  border-color: #0044cc; /* Blue focus border */
+  border-color: #0044cc; 
 }
 
 textarea {
@@ -121,11 +121,11 @@ li {
 }
 
 li h3 {
-  color: #0044cc; /* Blue color for event/news titles */
+  color: #0044cc;
 }
 
 li p {
-  color: #333333; /* Dark text color for paragraph */
+  color: #333333; 
   margin-bottom: 10px;
 }
 
