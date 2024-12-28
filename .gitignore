@@ -1,0 +1,104 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# Node.js modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+bower_components/
+
+# Environment variable files
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files and directories
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*.DS_Store
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Debug files
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage reports
+coverage/
+*.lcov
+
+# MongoDB database dumps
+dump/
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# OS-specific files
+Thumbs.db
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Logs and crash reports
+*.log
+*.tgz
+*.gz
+*.bz2
+
+# Optional npm cache
+.npm/
+
+# Test coverage output
+.nyc_output/
+coverage/
+
+# Typescript
+*.tsbuildinfo
+
+# React/Vite (if applicable)
+*.cache
+.vite/
+

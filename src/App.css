@@ -1,0 +1,161 @@
+/* App.css */
+:root {
+  --primary-color: #5865f2; /* Main brand color */
+  --secondary-color: #2c2f33; /* Dark background */
+  --accent-color: #1c1f26; /* Subtle dark accent */
+  --text-color-light: #ffffff; /* Light text */
+  --text-color-muted: #b9bbbe; /* Muted text */
+  --hover-color: #4752c4; /* Hover effect for buttons and links */
+  --border-radius: 8px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+header nav a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--hover-color);
+}
+
+.main-content {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  background-color: var(--accent-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  height: 100vh;
+}
+
+.sidebar h2 {
+  color: var(--primary-color);
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  background-color: var(--hover-color);
+}
+
+.content {
+  flex: 1;
+  background-color: var(--accent-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.content h2 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.content p {
+  color: var(--text-color-muted);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #555;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  font-size: 16px;
+}
+
+input[type="text"]:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-color-muted);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    height: auto;
+  }
+}
