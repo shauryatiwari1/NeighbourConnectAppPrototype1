@@ -10,6 +10,10 @@
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -79,6 +83,7 @@ header nav a:hover {
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
@@ -88,10 +93,19 @@ header nav a:hover {
   background-color: var(--secondary-color);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: block;  /* Make entire li block clickable */
+  width: 100%;     /* Ensures full width is clickable */
 }
 
 .sidebar ul li:hover {
   background-color: var(--hover-color);
+}
+
+.sidebar a {
+  display: block;
+  color: var(--text-color-light);
+  text-decoration: none;
+  padding: 10px;
 }
 
 .content {

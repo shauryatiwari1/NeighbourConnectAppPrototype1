@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import LocationHandler from './components/LocationHandler';
 import axios from 'axios';
 import './App.css';
 
@@ -11,6 +10,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [nearbyUsers, setNearbyUsers] = useState([]);
   const [location, setLocation] = useState(null);
+  const [userLocationName, setUserLocationName] = useState(null); // Add state for location name
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/news')
@@ -24,7 +24,21 @@ const App = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
-      (position) => setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude }),
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setLocation({ latitude, longitude });
+
+        // Fetch location name using reverse geocoding API
+        axios
+          .get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=9769debf296d40d69585b5d43ce46187`)
+          .then((response) => {
+            const result = response.data.results[0];
+            if (result) {
+              setUserLocationName(result.formatted); // Set the location name
+            }
+          })
+          .catch((error) => console.error('Error fetching location name:', error));
+      },
       (error) => console.error('Error fetching location:', error)
     );
   }, []);
@@ -71,24 +85,41 @@ const App = () => {
       });
   };
 
+  const handleScrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="container">
       <header>
         <h1>Neighborhood Connect</h1>
         <nav>
-          <a href="#news">News</a>
-          <a href="#events">Events</a>
-          <a href="#users">Nearby Users</a>
+          <a href="#news" onClick={() => handleScrollToSection('news')}>News</a>
+          <a href="#events" onClick={() => handleScrollToSection('events')}>Events</a>
+          <a href="#users" onClick={() => handleScrollToSection('users')}>Nearby Users</a>
         </nav>
       </header>
+
+      <h2>Your Location</h2>
+      {location ? (
+        <p>
+          <strong>Coordinates:</strong> {location.latitude}, {location.longitude} <br />
+          <strong>Location Name:</strong> {userLocationName || 'Fetching location...'}
+        </p>
+      ) : (
+        <p>Loading location...</p>
+      )}
 
       <div className="main-content">
         <aside className="sidebar">
           <h2>Menu</h2>
           <ul>
-            <li><a href="#news">News</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#users">Nearby Users</a></li>
+            <li><a href="#news" onClick={() => handleScrollToSection('news')}>News</a></li>
+            <li><a href="#events" onClick={() => handleScrollToSection('events')}>Events</a></li>
+            <li><a href="#users" onClick={() => handleScrollToSection('users')}>Nearby Users</a></li>
           </ul>
         </aside>
 
