@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd C:\\web projects2\\NeighbourConnectAppPrototype1\\backend && node index.js\" \"cd C:\\web projects2\\NeighbourConnectAppPrototype1 && npm run dev\""
+    "start": "concurrently \"cd ./backend && node index.js\" \"cd ./ && npm run dev\""
   },
   "keywords": [],
   "author": "",
