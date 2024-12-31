@@ -182,7 +182,7 @@ const App = () => {
                     {user.location && user.location.coordinates ? (
                       <p><strong>Location:</strong> {user.location.coordinates.join(', ')}</p>
                     ) : (
-                      <p><strong>Location:</strong> Unavailable</p>
+                      <p><strong>Location:</strong> Same</p>
                     )}
                   </li>
                 ))}

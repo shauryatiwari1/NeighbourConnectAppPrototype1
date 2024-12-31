@@ -1,16 +1,12 @@
 {
-  "name": "backend",
+  "name": "NeighbourConnectApp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd C:\\web projects2\\NeighbourConnectAppPrototype1\\backend && node index.js\" \"cd C:\\web projects2\\NeighbourConnectAppPrototype1 && npm run dev\""
+    "dev": "concurrently \"node backend/index.js\" \"vite\"",
+    "build": "vite build",
+    "start": "npm run build && node backend/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "axios": "^1.7.9",
     "concurrently": "^9.1.2",
@@ -21,7 +17,8 @@
     "leaflet-control-geocoder": "^3.1.0",
     "mongoose": "^8.9.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
